@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+{% block body %}
+<div class="row">
+    {% for article in articles %}
+      <div class="col-sm-12 card article-card col-lg-6">
+        <h3 class='card-title'><b>{{ article.title | upper}}</b></h3>
+        <h6>{{ article.publishAt |date }}</h6>
+        <div class='row'>
+          {% for image in article.images %}
+            <div class='col'>
+              <img class='img-fluid' src='{{ asset(image.chemin) }}'/>
+            </div>
+          {% endfor %}
+        </div>
+         <div>{{article.content | raw }}</div>
+         <!-- Facebook -->
+    <a type="button" class="btn-floating btn-small"><i class="fab fa-facebook-f"></i></a>
+         <a class='btn btn-primary' href="{{ path('articles_read',{'id':article.id})}}">Voire plus</a>
+        {% if app.user %}
+            <button >Spprimer</button><button >editer</button>
+        {% endif %}
+      </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block js %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/locale/fr-ca.min.js" integrity="sha512-6ftq6p0da6fhwkJeaW+hDKAxinsJm819v2Q4c8to1i+s2unTT6pqnDP3YN2BHGc6ENSgKirV1d/nI71XEsZH0g==" crossorigin="anonymous"></script>
+{% endblock %}

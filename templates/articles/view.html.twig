@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+{% block body %}
+     <p>
+        <div> <b>{{ article.title }}</b> </div>
+        <div> publishat {{ article.publishAt | date }}</div>
+        <div>{{article.content}}</div>
+        {% for image in article.images %}
+            <img width='200px' height='150px'src='{{ asset(image.chemin) }}'/>
+        {% endfor %}
+        <br>
+        <button >Partager</button>
+    </p>
+    {% for comment in article.comments  %}
+        <div> {{ comment.comment }}</div>    
+    {% endfor %}
+    {{ form(form) }}
+{% endblock %}

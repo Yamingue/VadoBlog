@@ -1,0 +1,7 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    {{ form(form )}}
+    {% for im in images %}
+        <img width='350px' heigth='300px' src='{{ asset(im.chemin) }}'/>
+    {% endfor %}
+{% endblock %}

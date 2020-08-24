@@ -1,0 +1,21 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <div class="row">
+        <div class="col-sm-12">
+             <h2 class="text-center">{{ article.title | upper }}</h2>
+        </div>
+        <div class="col-sm-12 row">
+            {% for image in article.images %}
+            <div class="col card">
+                <div class='card-image'>
+                    <img class='img-fluid' src='{{ asset(image.chemin) }}'/>
+                </div>
+            </div>
+           
+          {% endfor %}
+        </div>
+        <div class="col-sm-12 card">
+          {{ article.content | raw }}
+        </div>
+    </div>
+{% endblock %}

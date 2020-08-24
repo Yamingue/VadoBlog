@@ -1,0 +1,9 @@
+img{
+    object-fit: cover;
+    width: 100%;
+    max-height: 300px;
+}
+.article-card {
+    margin-bottom: 10px;
+    padding-top: 10px;
+}
